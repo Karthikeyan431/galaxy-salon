@@ -1,21 +1,7 @@
 {
-  "functions": {
-    "api/*.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "routes": [
-    {
-      "src": "/api/content",
-      "dest": "/api/content.js"
-    },
-    {
-      "src": "/api/courses",
-      "dest": "/api/courses.js"
-    },
-    {
-      "src": "/api/login",
-      "dest": "/api/login.js"
-    }
+    { "src": "/api/content", "dest": "/api/content.js" },
+    { "src": "/api/courses", "dest": "/api/courses.js" },
+    { "src": "/api/login", "dest": "/api/login.js" }
   ]
 }
