@@ -1,0 +1,96 @@
+{
+  "siteInfo": {
+    "name": "Galaxy Beauty Academy",
+    "tagline": "Beauty Academy Chennai | Start Your Beauty Career | Free Counselling",
+    "description": "Tamil Nadu's premier institute for Makeup, Hair, Skin Care, Nail Art & Cosmetology. Expert trainers, global certification & placement support.",
+    "phone": "+91-96776-94400",
+    "email": "saransaaro@gmail.com",
+    "address": "Chennai, Tamil Nadu",
+    "instagram": "https://www.instagram.com/saran_saro__/",
+    "whatsapp": "https://wa.me/919677694400"
+  },
+  "founder": {
+    "name": "Saro",
+    "title": "Founder & Lead Trainer",
+    "description": "I am a Chennai-based professional fashion makeup artist and educator, and the founder of Galaxy Beauty Academy & Salon. Recognized as one of Tamil Nadu's early established fashion makeup artists, I am also an internationally published professional.",
+    "image": "images/ProfilePic.jpeg"
+  },
+  "courses": [
+    {
+      "id": 1,
+      "title": "Professional Makeup Artistry",
+      "description": "Learn bridal, editorial, and professional makeup techniques with hands-on training.",
+      "image": "images/Makeup Artistry.jpg",
+      "duration": "3 Months",
+      "price": "₹25,000",
+      "level": "Beginner to Advanced",
+      "features": ["Bridal Makeup", "Editorial Looks", "Fashion Shows", "Portfolio Building"]
+    },
+    {
+      "id": 2,
+      "title": "Hair Styling & Extensions",
+      "description": "Master hair cutting, coloring, styling, and professional extensions.",
+      "image": "images/Hair Styling.jpeg",
+      "duration": "2 Months",
+      "price": "₹18,000",
+      "level": "Beginner to Advanced",
+      "features": ["Hair Cutting", "Color & Highlights", " rebonding", "Extensions"]
+    },
+    {
+      "id": 3,
+      "title": "Skin Care & Aesthetics",
+      "description": "Professional skincare, facials, and aesthetic treatments.",
+      "image": "images/Skin Care & Aesthetics.jpg",
+      "duration": "2 Months",
+      "price": "₹15,000",
+      "level": "Beginner",
+      "features": ["Facials", "Chemical Peels", "Microdermabrasion", "Skin Analysis"]
+    },
+    {
+      "id": 4,
+      "title": "Nail Art & Extensions",
+      "description": "Creative nail art, extensions, and professional nail care.",
+      "image": "images/Nail Art & Extensions.jpeg",
+      "duration": "1 Month",
+      "price": "₹8,000",
+      "level": "Beginner",
+      "features": ["Nail Extensions", "Art Designs", "Gel & Acrylic", "Nail Care"]
+    },
+    {
+      "id": 5,
+      "title": "Cosmetology",
+      "description": "Comprehensive cosmetology program covering all beauty aspects.",
+      "image": "images/Cosmetology.webp",
+      "duration": "6 Months",
+      "price": "₹50,000",
+      "level": "Advanced",
+      "features": ["Complete Makeup", "Hair Care", "Skin Care", "nails"]
+    },
+    {
+      "id": 6,
+      "title": "Salon Management",
+      "description": "Learn to manage and run a successful beauty salon.",
+      "image": "images/Salon Management.avif",
+      "duration": "1 Month",
+      "price": "₹10,000",
+      "level": "Business",
+      "features": ["Business Planning", "Client Management", "Marketing", "Finance"]
+    }
+  ],
+  "gallery": [
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg",
+    "images/5.jpg",
+    "images/6.jpg",
+    "images/7.jpg",
+    "images/8.jpg",
+    "images/9.jpg",
+    "images/10.jpg",
+    "images/11.jpg",
+    "images/12.jpg"
+  ],
+  "testimonials": [],
+  "lastUpdated": "2026-04-04T17:40:23+05:30"
+}
