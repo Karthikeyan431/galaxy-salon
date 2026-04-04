@@ -1,5 +1,8 @@
 {
   "framework": null,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": ".",
   "functions": {
     "api/*.js": {
       "runtime": "nodejs18.x"
@@ -17,12 +20,6 @@
     {
       "src": "/api/login",
       "dest": "/api/login.js"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
     }
   ]
 }
