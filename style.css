@@ -178,6 +178,7 @@ svg.lucide {
       rgba(8, 8, 16, 0.95) 55%
     ),
     linear-gradient(135deg, #0f0f1e, #06060f);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   opacity: 1;
   visibility: visible;
@@ -339,6 +340,7 @@ nav {
   top: 0;
   z-index: 100;
   background: rgba(8, 8, 16, 0.9);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   padding: 0.5rem 5%;
@@ -462,6 +464,7 @@ nav {
   bottom: 0;
   z-index: 99;
   background: rgba(8, 8, 16, 0.97);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   flex-direction: column;
   align-items: center;
@@ -822,6 +825,29 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 12px 36px var(--gold-glow);
   filter: brightness(1.1);
+}
+.btn-gold:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.25), 0 12px 36px var(--gold-glow);
+}
+.btn-gold:focus-visible {
+  outline: 2px solid var(--gold2);
+  outline-offset: 2px;
+}
+.nav-links a:focus {
+  outline: none;
+  color: var(--gold);
+}
+.nav-links a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.nav-cta:focus {
+  outline: none;
+}
+.nav-cta:focus-visible {
+  outline: 2px solid var(--gold2);
+  outline-offset: 2px;
 }
 .form-note {
   text-align: center;
@@ -1753,6 +1779,7 @@ nav {
   inset: 0;
   z-index: 10000;
   background: rgba(0, 0, 0, 0.92);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   display: none;
   align-items: center;
@@ -2063,43 +2090,65 @@ nav {
 
 /* Footer */
 .pf-footer {
-  padding: 40px 5% 20px;
+  padding: 60px 5% 30px;
   background: var(--bg2);
   border-top: 1px solid var(--border);
+}
+
+.pf-footer .sec-inner {
+  max-width: 1200px;
 }
 
 .pf-footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pf-footer-brand {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
 }
 
 .pf-footer-brand h3 {
   font-family: var(--f-display);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--gold);
   margin-bottom: 0.5rem;
 }
 
 .pf-footer-brand p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.pf-footer-brand address {
+  font-size: 0.85rem;
+  line-height: 1.8;
 }
 
 .pf-footer-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 1rem 0;
 }
 
 .pf-footer-links a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
+  padding: 0.5rem;
 }
 
 .pf-footer-links a:hover {
@@ -2107,8 +2156,14 @@ nav {
 }
 
 .pf-footer-copy {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--muted);
+  opacity: 0.6;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
   opacity: 0.6;
 }
 
@@ -3302,6 +3357,7 @@ h2.sh em {
   height: 36px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(201, 168, 76, 0.4);
   color: var(--gold2);
@@ -3425,6 +3481,7 @@ h2.sh em {
   inset: 0;
   z-index: 10000;
   background: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;

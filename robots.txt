@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://galaxybeautyacademy.com/sitemap.xml
+Disallow: /admin/
+Disallow: /login/
+Disallow: /thank-you/
+Disallow: /wp-admin/
+Disallow: /?s=
+Disallow: /search/
+
+Sitemap: https://www.galaxybeautyacademy.com/sitemap.xml
