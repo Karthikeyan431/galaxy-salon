@@ -360,8 +360,8 @@ nav {
   line-height: 1;
 }
 .nav-logo {
-  height: 50px;
-  width: 100px;
+  height: 70px;
+  width: 140px;
 }
 .nav-brand small {
   display: block;
@@ -5737,8 +5737,8 @@ footer {
   }
 
   .nav-logo {
-    height: 32px;
-    width: 70px;
+    height: 45px;
+    width: 90px;
   }
 
   .nav-cta {
