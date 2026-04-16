@@ -329,8 +329,8 @@
 
   <body>
     <!-- WELCOME AUDIO -->
-    <audio id="welcomeAudio" preload="auto" playsinline>
-      <source src="voice.mp4" type="audio/mp4">
+    <audio id="welcomeAudio" autoplay muted playsinline preload="auto">
+      <source src="voice.mp3" type="audio/mpeg">
     </audio>
 
     <!-- LOADER -->
@@ -1444,6 +1444,23 @@
       if (typeof lucide !== "undefined") {
         lucide.createIcons();
       }
+    </script>
+
+    <script>
+      window.addEventListener("load", () => {
+        const audio = document.getElementById("welcomeAudio");
+
+        setTimeout(() => {
+          audio.muted = false;
+          audio.play().catch(() => {
+            console.log("Autoplay blocked, waiting for user interaction...");
+          });
+        }, 1000);
+
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
     </script>
 
     <!-- Floating Social Icons -->
