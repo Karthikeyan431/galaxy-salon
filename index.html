@@ -329,30 +329,37 @@
 
   <body>
     <!-- WELCOME AUDIO - Autoplay on page load -->
-    <audio id="welcomeAudio" preload="auto" autoplay>
+    <audio id="welcomeAudio" preload="auto" playsinline>
       <source src="voice.mp4" type="audio/mp4">
     </audio>
     <script>
       (function() {
-        if (sessionStorage.getItem('welcomeAudio')) return;
+        if (sessionStorage.getItem('welcomeAudioPlayed')) return;
         
         const audio = document.getElementById('welcomeAudio');
         if (!audio) return;
         
+        audio.volume = 0.7;
+        
         function playAudio() {
-          if (sessionStorage.getItem('welcomeAudio')) return;
+          if (sessionStorage.getItem('welcomeAudioPlayed')) return;
+          
           audio.play().then(() => {
-            sessionStorage.setItem('welcomeAudio', 'true');
+            sessionStorage.setItem('welcomeAudioPlayed', 'true');
           }).catch(() => {});
         }
         
-        // Try to autoplay immediately on page load
+        // Try immediate autoplay
         playAudio();
         
-        // Fallback: play on first user interaction
+        // Try on first user interaction
         document.addEventListener('click', playAudio, { once: true });
         document.addEventListener('touchstart', playAudio, { once: true });
-        document.addEventListener('keydown', playAudio, { once: true });
+        
+        // Try after delays
+        setTimeout(playAudio, 500);
+        setTimeout(playAudio, 1500);
+        setTimeout(playAudio, 2500);
       })();
     </script>
 
