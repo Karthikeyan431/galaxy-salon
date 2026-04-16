@@ -54,12 +54,22 @@ window.addEventListener('load', function () {
       loader.parentNode.removeChild(loader);
     }
     
-    // Play audio when loader hides (works in most browsers)
+    // Try autoplay with sound after loader hides
     if (audio) {
-      audio.volume = 0.7;
-      audio.play().catch(function() {});
+      audio.muted = false;
+      audio.play().then(function() {
+        console.log("Audio autoplay with sound success");
+      }).catch(function() {
+        console.log("Autoplay blocked, waiting for user interaction");
+        
+        // Fallback: play on first click anywhere
+        document.addEventListener("click", function() {
+          audio.muted = false;
+          audio.play();
+        }, { once: true });
+      });
     }
-  }, 550);
+  }, 2000);
 
   document.body.style.overflow = 'auto';
 });

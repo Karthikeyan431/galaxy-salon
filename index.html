@@ -1446,23 +1446,6 @@
       }
     </script>
 
-    <script>
-      window.addEventListener("load", () => {
-        const audio = document.getElementById("welcomeAudio");
-
-        setTimeout(() => {
-          audio.muted = false;
-          audio.play().catch(() => {
-            console.log("Autoplay blocked, waiting for user interaction...");
-          });
-        }, 1000);
-
-        document.body.addEventListener("click", () => {
-          audio.play();
-        }, { once: true });
-      });
-    </script>
-
     <!-- Floating Social Icons -->
     <div class="floating-social">
       <a
