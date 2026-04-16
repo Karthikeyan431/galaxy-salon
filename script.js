@@ -40,9 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Page loader hide logic
+// Page loader hide logic + Audio play on loader hide
 window.addEventListener('load', function () {
   const loader = document.getElementById('loader');
+  const audio = document.getElementById('welcomeAudio');
+  
   if (!loader) return;
 
   loader.classList.add('loaded');
@@ -50,6 +52,12 @@ window.addEventListener('load', function () {
   setTimeout(function () {
     if (loader && loader.parentNode) {
       loader.parentNode.removeChild(loader);
+    }
+    
+    // Play audio when loader hides (works in most browsers)
+    if (audio) {
+      audio.volume = 0.7;
+      audio.play().catch(function() {});
     }
   }, 550);
 
