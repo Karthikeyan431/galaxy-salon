@@ -328,26 +328,17 @@
   </head>
 
   <body>
-    <!-- WELCOME AUDIO - Click to play -->
-    <audio id="welcomeAudio" preload="auto" playsinline>
+    <!-- WELCOME AUDIO - Autoplay -->
+    <audio id="welcomeAudio" preload="auto" playsinline autoplay>
       <source src="voice.mp4" type="audio/mp4">
     </audio>
-    <button id="playAudioBtn" style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:12px 20px;background:#d4af37;color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:14px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.3);">
-      🔊 Play Welcome
-    </button>
     <script>
       (function() {
         const audio = document.getElementById('welcomeAudio');
-        const btn = document.getElementById('playAudioBtn');
-        if (!audio || !btn) return;
+        if (!audio) return;
         
         audio.volume = 0.7;
-        
-        btn.addEventListener('click', function() {
-          audio.play().then(() => {
-            btn.style.display = 'none';
-          }).catch(() => {});
-        });
+        audio.play().catch(() => {});
       })();
     </script>
 
