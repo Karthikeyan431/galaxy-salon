@@ -328,6 +328,19 @@
   </head>
 
   <body>
+    <!-- AUTOPLAY AUDIO -->
+    <audio id="welcomeAudio" preload="auto">
+      <source src="voice.mp4" type="audio/mp4">
+    </audio>
+    <script>
+      const audio = document.getElementById('welcomeAudio');
+      if (audio) {
+        audio.play().catch(() => {
+          document.addEventListener('click', () => audio.play().catch(() => {}), { once: true });
+        });
+      }
+    </script>
+
     <!-- LOADER -->
     <div id="loader" class="loader-overlay">
       <div class="loader-container">
