@@ -328,17 +328,32 @@
   </head>
 
   <body>
-    <!-- AUTOPLAY AUDIO -->
-    <audio id="welcomeAudio" preload="auto">
+    <!-- WELCOME AUDIO - Autoplay on page load -->
+    <audio id="welcomeAudio" preload="auto" autoplay>
       <source src="voice.mp4" type="audio/mp4">
     </audio>
     <script>
-      const audio = document.getElementById('welcomeAudio');
-      if (audio) {
-        audio.play().catch(() => {
-          document.addEventListener('click', () => audio.play().catch(() => {}), { once: true });
-        });
-      }
+      (function() {
+        if (sessionStorage.getItem('welcomeAudio')) return;
+        
+        const audio = document.getElementById('welcomeAudio');
+        if (!audio) return;
+        
+        function playAudio() {
+          if (sessionStorage.getItem('welcomeAudio')) return;
+          audio.play().then(() => {
+            sessionStorage.setItem('welcomeAudio', 'true');
+          }).catch(() => {});
+        }
+        
+        // Try to autoplay immediately on page load
+        playAudio();
+        
+        // Fallback: play on first user interaction
+        document.addEventListener('click', playAudio, { once: true });
+        document.addEventListener('touchstart', playAudio, { once: true });
+        document.addEventListener('keydown', playAudio, { once: true });
+      })();
     </script>
 
     <!-- LOADER -->
@@ -1447,6 +1462,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
     <script src="script.js"></script>
+    <script src="voice.js"></script>
     <script>
       if (typeof lucide !== "undefined") {
         lucide.createIcons();

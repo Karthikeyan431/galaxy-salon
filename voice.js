@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("welcomeVoicePlayed")) return;
+  if (sessionStorage.getItem("welcomeAudioPlayed")) return;
 
   const message = "Welcome to Galaxy Beauty Academy. Thanks for choosing our shop.";
 
   function speak() {
     if (!window.speechSynthesis) return;
+if (sessionStorage.getItem("welcomeAudio")) return;
 
     const msg = new SpeechSynthesisUtterance(message);
     msg.lang = "en-US";
@@ -22,10 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     speechSynthesis.cancel();
     speechSynthesis.speak(msg);
-
-    sessionStorage.setItem("welcomeVoicePlayed", "true");
+    sessionStorage.setItem("welcomeAudio", "true");
   }
 
-  // 🔥 BEST: Trigger on first user interaction
-  document.addEventListener("click", () => speak(), { once: true });
+  // Try autoplay first
+  setTimeout(speak, 500);
+  
+  // Fallback on user interaction
+  document.addEventListener("click", speak, { once: true });
+  document.addEventListener("touchstart", speak, { once: true });
 });
