@@ -334,19 +334,20 @@
     </audio>
     <script>
       (function() {
-        if (sessionStorage.getItem('welcomeAudioPlayed')) return;
-        
         const audio = document.getElementById('welcomeAudio');
         if (!audio) return;
         
         audio.volume = 0.7;
         
+        // Remove sessionStorage check to test - plays every time
+        // Comment: Remove the sessionStorage lines below to play only once
+        
         function playAudio() {
-          if (sessionStorage.getItem('welcomeAudioPlayed')) return;
-          
           audio.play().then(() => {
-            sessionStorage.setItem('welcomeAudioPlayed', 'true');
-          }).catch(() => {});
+            console.log('Welcome audio playing!');
+          }).catch(err => {
+            console.log('Audio play error:', err.message);
+          });
         }
         
         // Try immediate autoplay
@@ -354,12 +355,10 @@
         
         // Try on first user interaction
         document.addEventListener('click', playAudio, { once: true });
-        document.addEventListener('touchstart', playAudio, { once: true });
         
         // Try after delays
-        setTimeout(playAudio, 500);
-        setTimeout(playAudio, 1500);
-        setTimeout(playAudio, 2500);
+        setTimeout(playAudio, 1000);
+        setTimeout(playAudio, 2000);
       })();
     </script>
 
