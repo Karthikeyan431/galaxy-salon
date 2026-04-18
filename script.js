@@ -47,29 +47,45 @@ window.addEventListener('load', function () {
   
   if (!loader) return;
 
-  loader.classList.add('loaded');
-
+  // Show loader for 1 second, then hide
   setTimeout(function () {
-    if (loader && loader.parentNode) {
-      loader.parentNode.removeChild(loader);
-    }
-    
-    // Try autoplay with sound after loader hides
-    if (audio) {
-      audio.muted = false;
-      audio.play().then(function() {
-        console.log("Audio autoplay with sound success");
-      }).catch(function() {
-        console.log("Autoplay blocked, waiting for user interaction");
+    loader.classList.add('loaded'); // Triggers 0.4s CSS fade transition
+
+    // Wait for fade animation to complete (0.4s) + small buffer (0.6s) before removing DOM and playing audio
+    setTimeout(function () {
+      if (loader && loader.parentNode) {
+        loader.parentNode.removeChild(loader);
+      }
+      
+      // Ensure audio plays cleanly without cutoff
+      if (audio) {
+        audio.muted = false;
+        audio.currentTime = 0; // Reset to start
         
-        // Fallback: play on first click anywhere
-        document.addEventListener("click", function() {
-          audio.muted = false;
-          audio.play();
-        }, { once: true });
-      });
-    }
-  }, 2000);
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(function() {
+            console.log("Audio autoplay with sound success");
+          }).catch(function(error) {
+            console.log("Autoplay blocked, waiting for user interaction:", error);
+            
+            // Fallback: play on first user interaction
+            const playOnInteraction = function() {
+              audio.muted = false;
+              audio.currentTime = 0;
+              audio.play().catch(err => console.log("Playback error:", err));
+              document.removeEventListener("click", playOnInteraction);
+              document.removeEventListener("touchstart", playOnInteraction);
+            };
+            
+            document.addEventListener("click", playOnInteraction, { once: true });
+            document.addEventListener("touchstart", playOnInteraction, { once: true });
+          });
+        }
+      }
+    }, 1000); // CSS fade (0.4s) + buffer time to ensure clean removal and audio startup
+
+  }, 1000); // loader display duration
 
   document.body.style.overflow = 'auto';
 });

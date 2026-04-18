@@ -195,51 +195,95 @@ svg.lucide {
 }
 
 .loader-container {
-  text-align: center;
-  padding: 2rem;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  border-radius: 20px;
-  background: rgba(4, 4, 10, 0.72);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes loader-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px rgba(201, 168, 76, 0.22),
+      0 0 60px rgba(201, 168, 76, 0.1),
+      inset 0 0 25px rgba(201, 168, 76, 0.08);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(201, 168, 76, 0.3),
+      0 0 80px rgba(201, 168, 76, 0.18),
+      inset 0 0 35px rgba(201, 168, 76, 0.12);
+  }
+}
+
+.loader-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loader-logo img {
-  width: 90px;
-  max-width: 100%;
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
   display: block;
-  margin: 0 auto 0.8rem;
-  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.8));
+  filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.5));
+  animation: logo-glow-pulse 2.2s ease-in-out infinite;
 }
 
 .loader-spinner {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .spinner-ring {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  border: 3px solid rgba(232, 160, 180, 0.24);
+  border: 2px solid rgba(232, 160, 180, 0.24);
   border-top-color: var(--gold);
   animation: spinner-spin 0.7s linear infinite;
+}
+
+.loader-text {
+  font-size: 0.6rem;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  max-width: 200px;
+  line-height: 1.4;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+@keyframes logo-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.5)) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.75)) scale(1.02);
+  }
 }
 
 @keyframes spinner-spin {
   to {
     transform: rotate(360deg);
   }
-}
-
-.loader-text {
-  margin-top: 0.85rem;
-  font-size: 1rem;
-  color: var(--white);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-weight: 700;
 }
 
 /* ── NOISE OVERLAY ── */
@@ -2207,8 +2251,6 @@ nav {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 500px;
-}
-  opacity: 0.6;
 }
 
 /* Footer CTA */
